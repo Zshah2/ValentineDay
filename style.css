@@ -1,0 +1,286 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Cursive', sans-serif;
+    background: linear-gradient(45deg, #ffadad, #ffbcc2); /* Soft pink gradient */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #ff4f69;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Container Styling */
+.container {
+    background: rgba(255, 255, 255, 0.8); /* Soft white background with transparency */
+    padding: 50px 30px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    backdrop-filter: blur(10px); /* Soft blur effect */
+}
+
+/* Title Styling */
+.title {
+    font-size: 3rem;
+    color: #ff4f69;
+    margin-bottom: 30px;
+    font-family: 'Dancing Script', cursive;
+    text-shadow: 2px 2px 10px rgba(255, 0, 0, 0.5); /* Light shadow effect */
+}
+
+/* Quote Styling */
+.quote-display p {
+    font-size: 1.6rem;
+    font-style: italic;
+    color: #4a1c26;
+    margin-bottom: 20px;
+    font-family: 'Dancing Script', cursive;
+    letter-spacing: 1px;
+    line-height: 1.5;
+}
+
+/* Button Styling */
+button {
+    background-color: #ff5e62;
+    color: white;
+    padding: 15px 35px;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Dancing Script', cursive;
+    box-shadow: 0px 8px 15px rgba(255, 0, 0, 0.3); /* Light shadow for depth */
+}
+
+button:hover {
+    background-color: #ff3d48;
+    transform: scale(1.05); /* Slight hover effect */
+}
+
+/* Heart Decoration */
+.hearts {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: heartsAnimation 7s linear infinite;
+}
+
+.hearts::before, .hearts::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #ff6f61;
+    top: 0;
+}
+
+.hearts::before {
+    left: 0;
+}
+
+.hearts::after {
+    right: 0;
+}
+
+.hearts {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    transform: rotate(45deg);
+    background-color: #ff6f61;
+}
+
+/* Heart Animation */
+@keyframes heartsAnimation {
+    0% {
+        transform: translateX(-50%) translateY(0) rotate(45deg);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-50px) rotate(45deg);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0) rotate(45deg);
+    }
+}
+
+/* Flower Decoration */
+.flowers {
+    position: absolute;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: flowersAnimation 9s ease-in-out infinite;
+}
+
+.flowers::before, .flowers::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-color: #ffb6c1;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+}
+
+.flowers {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    background-color: #ffb6c1;
+    border-radius: 50%;
+}
+
+.flowers::before {
+    top: -20px;
+}
+
+.flowers::after {
+    top: 20px;
+}
+
+/* Flower Animation */
+@keyframes flowersAnimation {
+    0% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-70px);
+    }
+    100% {
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Confetti Decoration */
+.confetti {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.confetti .confetti-piece {
+    position: absolute;
+    width: 50px; /* Larger size */
+    height: 50px; /* Larger size */
+    animation: confettiFall 3s infinite ease-in-out, randomConfettiPosition 4s infinite;
+    border-radius: 50%;
+}
+
+/* Confetti Colors (multiple vibrant colors) */
+.confetti .confetti-piece:nth-child(1) {
+    background-color: #ff5e62;
+}
+
+.confetti .confetti-piece:nth-child(2) {
+    background-color: #ffadad;
+}
+
+.confetti .confetti-piece:nth-child(3) {
+    background-color: #ffbcc2;
+}
+
+.confetti .confetti-piece:nth-child(4) {
+    background-color: #ffeb3b;
+}
+
+.confetti .confetti-piece:nth-child(5) {
+    background-color: #3d5afe;
+}
+
+.confetti .confetti-piece:nth-child(6) {
+    background-color: #7c4dff;
+}
+
+.confetti .confetti-piece:nth-child(7) {
+    background-color: #f50057;
+}
+
+.confetti .confetti-piece:nth-child(8) {
+    background-color: #8bc34a;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100%) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Random positioning for confetti */
+@keyframes randomConfettiPosition {
+    0% {
+        left: 0;
+    }
+    25% {
+        left: 20%;
+    }
+    50% {
+        left: 40%;
+    }
+    75% {
+        left: 60%;
+    }
+    100% {
+        left: 80%;
+    }
+}
+
+.confetti .confetti-piece {
+    animation: confettiFall 3s infinite ease-in-out, randomConfettiPosition 4s infinite;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .quote-display p {
+        font-size: 1.4rem;
+    }
+
+    button {
+        font-size: 1.2rem;
+        padding: 12px 30px;
+    }
+
+    .confetti .confetti-piece {
+        width: 30px;  /* Smaller confetti pieces on mobile */
+        height: 30px;
+    }
+}
